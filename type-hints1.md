@@ -145,7 +145,7 @@ Also available as a pre-commit hook (https://github.com/pre-commit/mirrors-mypy)
 ---
 # Types with parameters: Lists, Tuples & Dictionaries
 
-Lists can, of course, take entiries with any number of values. But, if you want to know what you can do with a given object, then specifying the type of entry that will be added is helpful.
+Lists can, of course, take entries with any number of values. But, if you want to know what you can do with a given object, then specifying the type of entry that will be added is helpful.
 
 If you assume it's a list of numbers, or strings, or dictionaries, type hints let you make that assumption explicit
 

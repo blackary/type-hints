@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import List
 
 
 def uppercase(val):
@@ -21,5 +22,7 @@ uppercase_typed(6)
 
 def get_parent(path: Path) -> Path:
     """Take a path, and return the parent directory"""
+    ...
 
-    
+
+# What happens if we do something to the output?
