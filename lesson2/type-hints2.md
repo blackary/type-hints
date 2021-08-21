@@ -4,34 +4,50 @@ theme: gaia
 ---
 <!-- class: lead -->
 
-# Python Type Hints
-#### Python Office Hours 2021-08-09
+# Python Type Hints, Part 2
+#### Python Office Hours 2021-08-23
 
 ---
 <!-- class: -->
 
 # Topics to Cover
 
-* What is type hinting?
-* What would you want to add type hints to your code?
-* Basic type hinting (str, int, etc.)
-* Using type checkers
-* Types with parameters: Lists, Tuples & Dictionaries
-* More complex types (Union, Optional, Any)
-* Where to start
-* Where to learn more
+* Callables & Generators
+* User-Defined Types
+* Generics
+* Overload & Cast
+* TYPE_CHECKING
+* Mypy settings
+* Libraries that take advantage of type hints (FastAPI, Typer, etc.)
+* Future of type hints
 
 ---
+
 <!-- class: invert -->
 
-# What is type hinting
+# Callables & Generators
+
+`Callable[[list_of_argument_types], return_type]`
 
 ```python
-def graduate(name: str) -> str:
-    return "Dr. " + name
+from typing import Callable
 
-entries: List[str] = []
+def apply_transform(df: pd.DataFrame, transform: Callable[[pd.DataFrame], None]) -> None:
+    transform(df)
+
+def fetch_data(fetcher: Callable[..., pd.DataFrame], **kwargs) -> pd.DataFrame:
+    return fetcher(**kwargs)
+
+def create_grid(arg1: int, arg2: int, grid_fn: Callable[[int, int], np.ndarray]) -> np.ndarray:
+    return grid_fn(arg1, arg2)
 ```
+
+---
+
+# Callables & Generators
+
+
+---
 
 * Introduced in python 3.0
 * Type hints ~ structured comments about variable types, function input types, return types, etc.
