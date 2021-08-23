@@ -72,10 +72,8 @@ What's the problem with this?
 <!-- class: -->
 
 * Brief Review
-* Callables & Generators
-* User-Defined Type Aliases
-* Generics
 * Overload & Cast
+* Not-yet-defined types
 * TYPE_CHECKING
 * Mypy settings
 * Libraries that take advantage of type hints (FastAPI, Typer, etc.)
@@ -84,11 +82,4 @@ What's the problem with this?
 
 # Future Topics
 
-* Callables & Generators
-* User-Defined Types
-* Generics
-* Overload & Cast
-* TYPE_CHECKING
-* Mypy settings
-* Libraries that take advantage of type hints (FastAPI, Typer, etc.)
-* Future of type hints
+* ???

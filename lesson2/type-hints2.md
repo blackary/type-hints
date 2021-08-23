@@ -270,6 +270,7 @@ def apply_model(model: S3Object[bytes], model_options: S3Object[str]):
 # Future Topics
 
 * Overload & Cast
+* Not-yet-defined types
 * TYPE_CHECKING
 * Mypy settings
 * Libraries that take advantage of type hints (FastAPI, Typer, etc.)
