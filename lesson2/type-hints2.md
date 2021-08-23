@@ -196,6 +196,19 @@ You can define your own generic types, which can be used as types, and with `[]`
 
 
 ---
+
+# Generics
+
+These generic types can be used with collections
+
+```python
+Item = TypeVar('Item')
+
+def first(items: Sequence[Item]) -> Item:
+    return items[0]
+```
+
+---
 # Generics
 
 ```python
