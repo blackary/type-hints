@@ -123,13 +123,51 @@ Similarly with dictionaries:
 (Probably not as important as using generic types for `list`-like variables)
 
 ---
+# Nicer NamedTuples (>=3.6)
+
+```python
+from collections import namedtuple
+
+Point = namedtuple('Point', ['x', 'y'], defaults=[0, 0])
+
+a = Point(2.0, 3.0)
+b = Point(x=3.3, y=4.5)
+c = Point()
+
+assert a.x == a[0]
+assert repr(a) == "Point(x=2.0, y=3.0)"
+assert repr(c) == "Point(x=0, y=0)"
+```
+
+---
 # Nicer NamedTuples
+
+```python
+from typing import NamedTuple
+
+class Point(NamedTuple):
+    x: float = 0
+    y: float = 0
+
+a = Point(2.0, 3.0)
+b = Point(x=3.3, y=4.5)
+c = Point()
+assert a.x == a[0]
+assert repr(a) == "Point(x=2.0, y=3.0)"
+assert repr(c) == "Point(x=0, y=0)"
+```
+Which one makes you happier?
 
 ---
 
 # User-Defined Type Aliases
 
-If you find yourself using a particular complicated type regularly (e.g. `Dict[Union[str, int], Callable...]`), or a type has a particular meaning in this code context (e.g. this type of dictionary always represents model options), it can be helpful to define a custom name for that class.
+If
+* you find yourself using a particular complicated type regularly (e.g. `Dict[Union[str, int], Callable...]`), or
+* a type has a particular meaning in this code context (e.g. this type of dictionary always represents model options),
+
+it can be helpful to define a custom name/alias for that type.
+
 
 ```python
 ModelOptionsType = Dict[Union[str, int], Union[int, np.ndarray]]
