@@ -14,13 +14,10 @@ theme: gaia
 
 * Brief Review
 * Callables & Generators
+* List-like types
+* Nicer NamedTuples
 * User-Defined Type Aliases
 * Generics
-* Overload & Cast
-* TYPE_CHECKING
-* Mypy settings
-* Libraries that take advantage of type hints (FastAPI, Typer, etc.)
-* Future of type hints
 
 ---
 <!-- class: invert -->
@@ -86,6 +83,50 @@ def add_values2(gen: Iterator[int]) -> int:
 
 ---
 
+# List-like Types (Better Duck-Typing)
+
+```python
+from typing import List, Sequence, Iterable, Tuple, Set
+
+def double_things(list_like_thing): # type: ???
+    for i in thing:
+        i *= 2
+        ...
+```
+Should any of these be a type-error?
+```
+double_things([1,2,3])
+double_things((1,2,3))
+double_things({1,2,3})
+```
+
+---
+# List-like Types (Better Duck-Typing)
+
+* Do you just need it to work in `for` loop? Use `Iterable`
+* Will you be `len(arg)` or `arg[23]`? Use `Sequence`.
+* Will you be using `arg.reverse()`, `arg.append()`? Use `List`.
+
+Why not just always use `List`, since it has all of these features?
+
+Can save you from issues later where some passes a list-like thing (e.g. a tuple) and it should work fine, but mypy complains. Or, more importantly, saves bugs in the reverse case.
+
+Makes your assumptions more explicit -- yes, it's list-like, but how?
+
+---
+# List-like Types (Better Duck-Typing)
+
+Similarly with dictionaries:
+* Do you just need something that maps? `Mapping`
+* What if you need to change/add items? `MutableMapping`
+
+(Probably not as important as using generic types for `list`-like variables)
+
+---
+# Nicer NamedTuples
+
+---
+
 # User-Defined Type Aliases
 
 If you find yourself using a particular complicated type regularly (e.g. `Dict[Union[str, int], Callable...]`), or a type has a particular meaning in this code context (e.g. this type of dictionary always represents model options), it can be helpful to define a custom name for that class.
@@ -107,7 +148,6 @@ DatetimeLikeScalar = Union["Period", "Timestamp", "Timedelta"]
 PandasScalar = Union["Period", "Timestamp", "Timedelta", "Interval"]
 Scalar = Union[PythonScalar, PandasScalar]
 ```
-
 ---
 # Generics
 
@@ -155,20 +195,25 @@ class Doubler(Generic[DoublableType]):
 item1: Doubler[int] = Doubler(27)
 item2: Doubler[str] = Doubler("a string")
 ```
----
-# Overload & Cast
 
 ---
-# TYPE_CHECKING
+# Generics
 
----
-# Mypy Settings
+More practical example
 
----
-# Libaries that use Type Hints
+```python
+ContentType = TypeVar("ContentType", str, bytes)
 
----
-# Future of type hints
+class S3Object(Generic[ContentType]):
+    def __init__(self, key: str) -> None:
+        self.key = key
+
+    def get_contents(self) -> ContentType:
+        ...
+
+def apply_model(model: S3Object[bytes], model_options: S3Object[str]):
+    ...
+```
 ---
 
 # What did we cover?
@@ -176,20 +221,15 @@ item2: Doubler[str] = Doubler("a string")
 
 * Brief Review
 * Callables & Generators
+* List-like Types
+* Better NamedTuples
 * User-Defined Type Aliases
 * Generics
-* Overload & Cast
-* TYPE_CHECKING
-* Mypy settings
-* Libraries that take advantage of type hints (FastAPI, Typer, etc.)
-* Future of type hints
+
 ---
 
 # Future Topics
 
-* Callables & Generators
-* User-Defined Types
-* Generics
 * Overload & Cast
 * TYPE_CHECKING
 * Mypy settings

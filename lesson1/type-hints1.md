@@ -273,9 +273,9 @@ https://www.python.org/dev/peps/pep-0484/
 * What would you want to add type hints to your code?
 * Basic type hinting (str, int, etc.)
 * Using type checkers
-* Types with parameters Lists, Tuples & Dictionaries
+* Types with parameters -- Lists, Tuples & Dictionaries
 * More complex types (Union, Optional, Any)
-* Where to start?
+* Where to start
 * Where to learn more
 
 ---
