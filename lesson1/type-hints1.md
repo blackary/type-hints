@@ -69,7 +69,7 @@ Results in a runtime error, but it would be nice to catch it beforehand
 # Why add type hints?
 ## Catching bugs preemptively
 
-![](figs/argument-error.png)
+![](../figs/argument-error.png)
 
 ---
 
