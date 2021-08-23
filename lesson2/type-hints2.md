@@ -98,6 +98,7 @@ Should any of these be a type-error?
 double_things([1,2,3])
 double_things((1,2,3))
 double_things({1,2,3})
+double_things("123")
 ```
 
 ---
@@ -109,7 +110,7 @@ double_things({1,2,3})
 
 Why not just always use `List`, since it has all of these features?
 
-Can save you from issues later where some passes a list-like thing (e.g. a tuple) and it should work fine, but mypy complains. Or, more importantly, saves bugs in the reverse case.
+What if someone passes a tuple? Should it work? Will it work?
 
 Makes your assumptions more explicit -- yes, it's list-like, but how?
 
