@@ -149,12 +149,12 @@ reveal_locals()
 
 Can see the output with `mypy filename.py` or inside of IDE
 
+Note: you can get the same info from Pylance just by hovering over a variable in vscode
+
 ---
 # Mypy Debugging
 
 ![](../figs/reveal_types.png)
-
-Note: you can get the same info from Pylance just by hovering over a variable in vscode
 
 ---
 
@@ -233,7 +233,7 @@ def read_item(item_id: int, q: Optional[str] = None):
 ```
 
 ---
-# Libraries that use Type Hints: PyDantic
+# Libraries that use Type Hints: pydantic
 
 ```python
 from pydantic import BaseModel
@@ -328,6 +328,4 @@ class Person(TypedDict, total=False):
 * Future of type hints
 ---
 
-# Future Topics
-
-* ???
+# Questions?
