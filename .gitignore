@@ -2,3 +2,5 @@
 .envrc
 *.code-workspace
 *.pyc
+.vscode
+*.pdf
