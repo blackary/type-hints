@@ -1,0 +1,18 @@
+{
+  "name": "type-hints",
+  "version": "0.0.0",
+  "author": "Zachary Blackwood <zblackwo@gmail.com>",
+  "license": "",
+  "private": true,
+  "scripts": {
+    "build": "rimraf dist && npm run -s deck",
+    "deck": "marp --no-stdin lesson*/*.md && mv lesson*/*.html dist/",
+    "now-build": "npm run -s deck",
+    "start": "marp -ps ."
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^1.4.0",
+    "cpy-cli": "^3.1.1",
+    "rimraf": "^3.0.2"
+  }
+}
