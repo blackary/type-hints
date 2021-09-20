@@ -5,7 +5,7 @@ theme: gaia
 <!-- class: lead -->
 
 # Python Type Hints, Part 3
-#### Python Office Hours 2021-09-27
+#### Python Office Hours 2021-09-20
 
 ---
 <!-- class: -->
@@ -67,7 +67,7 @@ What's the problem with this?
 ---
 # Overload & Cast
 
-`cast` ~ the inverse of `overload`
+`cast` ~ the inverse of `union`
 
 ```python
 data = cast(dict, load_json("model_options.json"))
@@ -270,12 +270,12 @@ Literals (Python >= 3.8)
 ```python
 from typing import Literal
 
-MODE = Literal['r', 'rb', 'w', 'wb']
-def open_helper(file: str, mode: MODE) -> str:
+MODE = Literal["r", "rb", "w", "wb"]
+def open_file(file: str, mode: MODE) -> IO:
     ...
 
-open_helper('/some/path', 'r')
-open_helper('/other/path', 'typo')  # MyPy error
+open_helper("/some/path", "r")
+open_helper("/other/path", "typo")  # MyPy error
 ```
 ---
 # Future of type hints
