@@ -1,5 +1,7 @@
 # Three lesson on type hints
 
-See the `lesson1/`, `lesson2/`, `lesson3/` folders for markdown slides and example code
+[Lesson 1](https://blackary.com/type-hints/type-hints1.html)
+[Lesson 2](https://blackary.com/type-hints/type-hints2.html)
+[Lesson 3](https://blackary.com/type-hints/type-hints3.html)
 
 Prepared for company-wide "Python Office Hours" at [DTN](https://www.dtn.com)

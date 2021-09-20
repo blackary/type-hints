@@ -34,7 +34,7 @@ jobs:
       - name: Build Marp slide deck
         run: |
           CHROME_PATH=$(node .puppeteer.js) npm run build
-          touch ./dist/.nojekyll
+          cp README.md dist/index.md
         env:
           # Please update URL if you want to use custom domain
           URL: https://${{ github.event.repository.owner.name }}.github.io/${{ github.event.repository.name }}
